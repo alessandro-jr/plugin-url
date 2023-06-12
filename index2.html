@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Copiar Texto</title>
+  <script>
+    function copiarTexto() {
+      /* Seleciona o elemento de texto */
+      var texto = document.getElementById("meuTexto");
+
+      /* Cria um campo de texto auxiliar */
+      var aux = document.createElement("input");
+
+      /* Define o valor do campo auxiliar como o texto a ser copiado */
+      aux.setAttribute("value", texto.textContent);
+
+      /* Adiciona o campo auxiliar à página */
+      document.body.appendChild(aux);
+
+      /* Seleciona o conteúdo do campo auxiliar */
+      aux.select();
+
+      /* Copia o conteúdo selecionado */
+      document.execCommand("copy");
+
+      /* Remove o campo auxiliar */
+      document.body.removeChild(aux);
+
+      /* Exibe uma mensagem de sucesso */
+      alert("Texto copiado!");
+    }
+  </script>
+</head>
+<body>
+  <p id="meuTexto">Após instalado, inserir os seguintes dados:         
+    *Nome*: The Flash Play         
+    *Url*:http://meumd.com:80
+    *Nome de usuário*: 
+    *Senha*: 
+    Me avisa se deu certo, tenha um otimo teste!</p>
+  <button onclick="copiarTexto()">Copiar</button>
+</body>
+</html>
